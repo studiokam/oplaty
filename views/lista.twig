@@ -1,0 +1,37 @@
+{% include "head.twig" %}
+
+		<!-- content -->
+		<div class="content">
+
+			<div class="tytul-strony">Wszystkie płatności - opcje</div>
+
+			{% if flash_success %}
+				<div class="flash_success">{{ flash_success }}</div>
+			{% endif %}
+			
+			{% if flash_error %}
+				<div class="flash_error">{{ flash_error }}</div>
+			{% endif %}
+
+			<div class="lista-platnosci">
+				
+                {% for platnosc in platnosci_array %}
+                <div class="box-platnosci">
+
+                	<div class="tooltip"><a href="edytuj.php?id={{ platnosc.id }}"><i class="ion-ios-gear mr10"></i></a>
+                		<span class="tooltiptext tooltip-right">Edytuj</span>
+                    </div>
+                	<div class="tooltip ml"><a href="raty_platnosci.php?id={{ platnosc.id }}"><i class="ion-grid mr10"></i></a>
+                		<span class="tooltiptext tooltip-left">Zobacz wszytkie raty</span>
+                	</div>           
+
+                    <div class="tooltip ml">{{ platnosc.name }}</div>
+
+				</div>
+                {% endfor %}
+
+			</div>
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}

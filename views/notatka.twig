@@ -1,0 +1,46 @@
+{% include "head.twig" %}
+
+
+		<!-- content -->
+		<div class="content">
+			
+			
+
+			<div class="tytul-strony mb-20">Notatka</div> 
+
+			{% if flash_success %}
+					<div class="flash_success mb-20">{{ flash_success }}</div>
+				{% endif %}
+				
+				{% if flash_error %}
+					<div class="flash_error mb-20">{{ flash_error }}</div>
+				{% endif %}
+
+			<div class="edytuj-forms">
+				
+				<!-- formularze -->
+				<div class="row">
+				
+					<div class="col-md-6">
+
+						<form action="" method="post">
+							<div class="nowa-box ">
+								<div class="form-input mb-20">
+									<textarea rows="6" cols="50" name="notatka" placeholder="Podaj notatkę" required="">{{ note }}</textarea>
+								</div>
+
+								<button type="submit" class="btn btn-save">Zapisz</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+		        <!-- /formularze -->
+		    </div>
+	        
+
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}

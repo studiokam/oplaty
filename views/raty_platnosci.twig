@@ -1,0 +1,101 @@
+{% include "head.twig" %}
+
+
+		<!-- content -->
+		<div class="content">
+			
+			
+
+			<div class="tytul-strony">Lista wszystki rat do płatności: <b>{{ nazwa_platnosci }}</b></div>
+
+			<!-- tabela z płatnościami -->
+			
+			<div class="box-raty-platnosc">
+
+				<table class="table-rwd">
+	            
+		            <!-- tabela wyjaśnienia (blue) -->
+					<tr class="tab-rekord tab-tytul-margin">
+		              	<td class="rekord-rata-nr-blue">Nr.</td>
+		                <td class="rekord-rata-data-blue text-center">Data raty</td>
+		                <td class="rekord-rata-status-blue text-center">Status</td>
+		                <td class="rekord-rata-opcje-blue">Opcje</td>
+		            </tr>
+					<!-- /tabela wyjaśnienia (blue) -->
+
+
+					<!-- tabela rekord -->
+					{% for rata in raty_array %}
+						
+					
+		            <tr class="tab-rekord">
+		                <td class="rekord-rata-nr">{{ rata.nr_raty }}</td>
+		                <td class="rekord-rata-data text-center">{{ rata.data_raty|date('Y-m-d') }}</td>
+		                <td class="rekord-rata-status text-center {% if rata.status == 1 %}rata-ok{% endif %}">
+		                	{% if rata.status == 0 %}
+		                		do opłaty
+		                	{% else %}
+		                		opłacono
+		                	{% endif %}
+		                </td>
+		                <td class="rekord-rata-opcje big">
+		                	{% if rata.status == 0 %}
+								<div class="tooltip"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}&zaplacono=ok&id_raty={{ rata.id }}"><i class="ion-checkmark"></i></a>
+			                		<span class="tooltiptext tooltip-right">Opłacono</span>
+			                	</div>
+		                	{% else %}
+								<div class="tooltip"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}&zaplacono=back&id_raty={{ rata.id }}"><i class="ion-backspace"></i></a>
+			                		<span class="tooltiptext tooltip-right">Oznacz jako nieopłacona</span>
+			                	</div>
+		                	{% endif %}
+		                	
+		                	<div class="tooltip"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}&logi={{ rata.id }}"><i class="ion-shuffle mr10"></i></a>
+		                		<span class="tooltiptext tooltip-left">Logi</span>
+		                	</div>
+		            	</td>
+		            	<td class="rekord-rata-opcje small">
+		                	{% if rata.status == 0 %}
+			                	<div class="link-ico"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}&zaplacono=ok&id_raty={{ rata.id }}"><i class="ion-checkmark"></i></a></div>
+		                	{% else %}
+								<div class="link-ico"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}&zaplacono=back&id_raty={{ rata.id }}"><i class="ion-backspace"></i></a></div>
+		                	{% endif %}
+
+		                	<div class="link-ico"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}&logi={{ rata.id }}"><i class="ion-shuffle"></i></a>
+		                	</div>
+		                	
+		            	</td>
+		            </tr>
+
+		            {% if rata_logi == rata.id %}
+					<tr>
+		            	<td>
+		            		<div class="raty-logi">
+		            			<!-- logi -->
+								<div class="logi">
+									{% for logi in logi_array %}
+										<p><span class="logi-small">{{ logi.data|date('Y-m-d H:i:s') }} / {% if logi.dodal == 1 %}Konrad{% endif %} {% if logi.dodal == 2 %}Gosia{% endif %}
+										
+										</span> {{ logi.tresc }}</p>
+									{% endfor %}
+								</div>
+						        <!-- /logi -->
+		            		</div>
+		            	</td>
+		            </tr>
+		            {% endif %}
+			
+		            {% endfor %}
+		            <!-- /tabela rekord -->
+
+
+		        </table>
+		        
+			</div>
+			
+	        <!-- /tabela z płatnościami -->
+
+
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}

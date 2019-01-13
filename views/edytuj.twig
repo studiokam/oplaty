@@ -1,0 +1,93 @@
+{% include "head.twig" %}
+
+
+		<!-- content -->
+		<div class="content">
+			
+			
+			{% if delete == 'ok' %}
+				<div class="tytul-strony mb-20">Czy potwierdzasz usunięcie płatności: <b>{{ platnosc_array.name }}</b> ?</div> 
+				<a href="edytuj.php?id={{ platnosc_array.id }}&delete_ok=y" class="btn btn-danger">Tak - Usuń płatność</a>
+				<a href="edytuj.php?id={{ platnosc_array.id }}" class="btn btn-green">Wróć</a>
+			{% endif %}
+
+			{% if delete != 'ok' %}
+
+			<div class="tytul-strony mb-20">Edycja płatności: <b>{{ platnosc_array.name }}</b></div> 
+			<a href="edytuj.php?id={{ platnosc_array.id }}&action=delete" class="btn btn-danger">Usuń płatność</a>
+
+			<div class="edytuj-forms">
+
+				{% if flash_success %}
+					<div class="flash_success mb-20">{{ flash_success }}</div>
+				{% endif %}
+				
+				{% if flash_error %}
+					<div class="flash_error mb-20">{{ flash_error }}</div>
+				{% endif %}
+				
+				<!-- formularze -->
+				<div class="row">
+				
+					<div class="col-md-6">
+
+						<form action="" method="post">
+							<div class="form-box ">
+								<div class="form-label">
+									<label for="name">Nazwa płatności</label>
+								</div>
+								<div class="form-input">
+									<input type="text" name="name" value="{{ platnosc_array.name }}" required>
+								</div>
+								<button type="submit" class="btn btn-save">Zapisz</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-md-6">
+						<form action="" method="post">
+							<div class="form-box ">
+								<div class="form-label">
+									<label for="price">Kwota</label>
+								</div>
+								<div class="form-input">
+									<input type="text" name="price" value="{{ platnosc_array.price }}" required>
+								</div>
+								<button type="submit" class="btn btn-save">Zapisz</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+		        <!-- /formularze -->
+		    </div>
+	        
+
+	        <div class="edytuj-info">
+	        	<h1>Uwaga, ważne przy edycji.</h1>
+
+				<p>Edycja działa inaczej niż dodanie nowej płatności. Przy podaniu nowych wartości, wszystkie raty dla których termin płatności już minął zostaną zachowane a przyszłe będą edytowane.</p>
+
+				<p>Zmiana samej tylko nazwy nie ma wpływu na raty.
+				Zmiana kwoty spowoduje zmianę "przyszłych" rat, poprzednie pozostaną z pierwotną wartością.
+				Nie dajemy możliwości zmiany cyklu, daty płatności czy ilości powtórzeń (za dużo zmian w bazie), jeśli chcesz mieć tu inne wartości, wykasuję tę płatność i dodaj nową. </p>
+	        </div>
+
+			<!-- logi -->
+			<div class="logi">
+				<h1>Wszystkie logi dla tej płatności</h1>
+				{% for logi in logi_array %}
+					<p><span class="logi-small">{{ logi.data|date('Y-m-d H:i:s') }} / {% if logi.dodal == 1 %}Konrad{% endif %} {% if logi.dodal == 2 %}Gosia{% endif %}
+					
+					</span> {{ logi.tresc }}</p>
+				{% endfor %}
+			</div>
+	        <!-- /logi -->
+
+			{% endif %}
+
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}

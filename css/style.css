@@ -1,0 +1,1178 @@
+/*reset styli css*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Ubuntu:300,400,500,700');
+* {
+	box-sizing: border-box;
+}
+*:focus {
+    outline: none;
+}
+
+
+
+
+
+
+/* ---------------- globalne ---------------- */
+
+html {
+	background: url('../img/bg.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height:100vh;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 1;
+	color: #767676;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.container {
+  flex: 1 0 auto;
+}
+.content {
+	margin: 30px 60px;
+}
+b {
+	font-weight: 700;
+}
+.pusteoba {
+	clear: both;
+}
+.tytul-strony {
+	font-size: 20px;
+	line-height: 20px;
+	margin: 50px 0;
+}
+
+
+/* ---------------- buttony ---------------- */
+.btn {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	padding: 8px 15px;
+	border: 1px solid transparent;
+	transition: all 0.15s ease-in-out;
+	text-align: center;
+	font-size: 13px;
+	vertical-align: middle;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.btn-expired {
+	background: #E86E4D;
+	margin-top: 10px;
+}
+.btn-expired:hover {
+	background: #44638C;
+}
+
+.btn-save {
+	background: #44638c;
+	border: 1px solid #3d597e;
+	margin-top: 10px;
+}
+.btn-save:hover {
+	background: #395274;
+	border: 1px solid #344c6b;
+}
+
+.btn-danger {
+	background: #f04124;
+	border: 1px solid #ea2f10;
+	margin-top: 10px;
+}
+.btn-danger:hover {
+	background: #d32a0e;
+	border: 1px solid #b1240c;
+}
+
+.btn-green {
+	background: #43ac6a;
+	border: 1px solid #3c9a5f;
+	margin-top: 10px;
+}
+.btn-green:hover {
+	background: #358753;
+	border: 1px solid #2b6e44;
+}
+
+
+/* ------------- inputy (form) ------------- */
+.form-input input {
+	padding: 10px 12px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	color: #6f6f6f;
+	width: 100%;
+	box-sizing: border-box;
+}
+.form-input-zaloguj input {
+	padding: 10px 12px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	color: #6f6f6f;
+	width: 100%;
+	box-sizing: border-box;
+}
+.form-input textarea {
+	padding: 25px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	color: #6f6f6f;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+}
+.zaloguj-form select {
+	padding: 9px 12px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+	color: #6f6f6f;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* ---------------- elementy wspólne jak menu, footer, etc. ---------------- */
+/*top strony (nav, konto, zalogowany itp)*/
+.main-header {
+	font-size: 24px;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
+	letter-spacing: -0.5px;
+	color: #fff;
+
+	width: 100%;
+	min-height: 90px;
+	background-color: #44638c;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	padding-left: 60px;
+	margin-top: 30px;
+}
+.zaloguj .logo {
+	margin: 30px auto;
+	padding: 0;
+}
+.box-zaloguj {
+	margin: 60px auto;
+	max-width: 400px;
+}
+.zaloguj-btn {
+	text-align: center;
+}
+.zaloguj-btn button {
+	display: block;
+	width: 100%;
+	padding: 15px;
+}
+.logo a, .konto a {
+	text-decoration: none;
+	color: #fff;
+}
+.logo a:hover {
+	text-decoration: none;
+	color: #fee;
+}
+.konto a:hover {
+	color: #e86e4d;
+}
+.form-label-zaloguj {
+	float: left;
+	background: #ccc;
+	padding: 14px 15px 13px ;
+	font-size: 13px;
+	line-height: 13px;
+	width: 75px
+}
+.form-input-zaloguj {
+	float: left;
+	width: calc(100% - 75px);
+}
+.zaloguj-form::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+
+.konto {
+	padding-right: 60px;
+	margin-top: 30px;
+}
+.zalogowany {
+	font-weight: 700;
+	text-transform: capitalize;
+}
+
+.ico-wyloguj {
+	font-size: 20px;
+	margin-left: 7px;
+}
+.ico-serce {
+	font-size: 20px;
+	margin-right: 7px;
+}
+
+
+
+
+/* ---------------- alerty-----------------*/
+.alert {
+	padding: 30px;
+	background: #e84a4d;
+	color: #fff;
+	display: table;
+}
+.alert p {
+	margin-bottom: 10px;
+}
+.alert p:last-child {
+	margin-bottom: 0;
+}
+.flash_success {
+	background: #6aa868;
+	color: #fff;
+	padding: 20px 30px;
+}
+.flash_error {
+	background: #dd4949;
+	color: #fff;
+	padding: 20px 30px;
+}
+
+
+
+
+
+nav {
+	width: 100%;
+	min-height: 40px;
+	background-color: #e86e4d;
+	padding: 0;
+}
+.nav-padd {
+	padding: 0 60px;
+}
+
+/*Strip the ul of padding and list styling*/
+nav ul {
+    position: absolute;
+}
+/*Create a horizontal list with spacing*/
+nav li {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+}
+/*Style for menu links*/
+nav li a {
+    display:block;
+    padding: 0 30px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    background: #f17350;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+}
+/*Hover state for top level links*/
+nav li:hover a {
+    background: #44638c;
+}
+
+
+/*Display the dropdown on hover*/
+nav ul li a:hover + .hidden, .hidden:hover {
+    display: block;
+}
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    text-decoration: none;
+    color: #fff;
+    background: #e86e4d;
+    text-align: center;
+    padding: 15px 0;
+    display: none;
+}
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+
+
+/* ----- stopka ------ */
+
+footer {
+	border-top: 1px solid #dbdbdb;
+	margin: 50px 60px 0;
+	padding: 20px 0 20px 0;
+}
+footer a {
+	text-decoration: none;
+	color: #767676;
+}
+footer a:hover {
+	text-decoration: none;
+	color: #767676;
+	font-weight: 700;
+}
+.ico-footer {
+	font-size: 12px;
+}
+
+
+/* ------------------------------------------------- */
+/* ---------------- nasze płatności ---------------- */
+.do-zaplaty {
+	font-weight: 22px;
+	padding-top: 30px;
+}
+
+/* -----  tabela w nasze platności------- */
+
+.table-rwd {
+    width: 80%;
+    margin-top: 30px;
+    color: #767676;
+    font-size: 15px;
+    line-height: 15px;
+}
+.table-rwd a {
+    color: #767676;
+    text-decoration: none;
+}
+.table-rwd a:hover {
+    color: #E86E4D;
+    text-decoration: none;
+}
+.tab-nag {
+    background: #557195;
+    color: #fff;
+    padding: 20px ;
+    width: auto;
+}
+
+.tab-rekord {
+    display: flex;
+    width: 100%;
+    margin-top: 1px;
+    font-size: 14px;
+}
+.table-font-small {
+	font-size: 10px;
+	line-height: 10px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+
+
+/*rekordy*/
+.rekord-ikony, .rekord-tytul, .rekord-data, .rekord-kwota, .rekord-do-konca, .rekord-do-konca-red, .rekord-yes,
+.rekord-rata-nr, .rekord-rata-data, .rekord-rata-status, .rekord-rata-opcje {
+	background: rgba(255, 255, 255, 0.7);
+    padding: 20px ;
+}
+.rekord-ikony {
+	width: 101px;
+	padding-right: 0;
+}
+.rekord-ikony .tooltip {
+	float: left;
+	margin-right: 4px;
+}
+.rekord-rata-opcje .tooltip {
+	float: left;
+	margin-right: 12px;
+}
+.rekord-tytul {
+    width: calc(50% - 101px);
+    margin-right: 1px;
+    padding-left: 0;
+    font-size: 14px;
+}
+.rekord-data {
+    width: 22%;
+    font-size: 14px;
+}
+.rekord-kwota {
+    width: 16%;
+    font-weight: 700;
+    font-size: 14px;
+}
+.rekord-do-konca {
+    width: 6%;
+    margin-right: 1px;
+    font-size: 14px;
+}
+.rekord-do-konca-red {
+    width: 6%;
+    margin-right: 1px;
+    font-size: 14px;
+}
+.rekord-yes {
+    width: 6%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.rekord-rata-nr {
+	width: 80px;
+}
+.rekord-rata-data {
+	width: calc(50% - 100px);
+}
+.rekord-rata-status {
+	width: calc(50% - 100px);
+}
+.rekord-rata-opcje {
+	width: 120px;
+}
+
+.rata-ok {
+	color: #fff;
+	background: #89b478;
+}
+.text-center {
+	text-align: center;
+}
+
+
+/*ustawienia nagłówka tabeli z rekordami*/
+.rekord-tytul-blue, .rekord-data-blue, .rekord-kwota-blue, .rekord-do-konca-blue, .rekord-yes-blue, 
+.rekord-rata-nr-blue, .rekord-rata-data-blue, .rekord-rata-status-blue, .rekord-rata-opcje-blue {
+	color: #fff;
+	background: #6686b0;
+    padding: 20px ;
+}
+
+.rekord-tytul-blue {
+    width: 50%;
+    margin-right: 1px;
+}
+.rekord-data-blue {
+    width: 22%;
+    font-size: 14px;
+}
+.rekord-kwota-blue {
+    width: 16%;
+    font-weight: 700;
+    font-size: 14px;
+}
+.rekord-do-konca-blue {
+    width: 6%;
+    margin-right: 1px;
+}
+.rekord-yes-blue {
+    width: 6%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.tab-nag-miesiac {
+	float: right;
+	background: #6686b0;
+	border: none;
+}
+.tab-nag-miesiac select {
+	font-size: 14px;
+	padding: 7px;
+	color: #333;
+}
+.tab-nag-inf {
+	float: left;
+	padding: 7px 0 0 0;
+}
+
+.rekord-rata-nr-blue {
+	width: 80px;
+}
+.rekord-rata-data-blue {
+	width: calc(50% - 100px);
+}
+.rekord-rata-status-blue {
+	width: calc(50% - 100px);
+}
+.rekord-rata-opcje-blue {
+	width: 120px;
+} 
+.box-raty-platnosc .table-rwd {
+	width: 100%;
+}
+.box-raty-platnosc {
+	text-align: center;
+	max-width: 1000px;
+}
+.box-raty-platnosc .small {
+	display: none;
+}
+.box-raty-platnosc .logi {
+	padding: 25px 35px 10px;
+	margin: 1px 0 10px 0;
+	text-align: left;
+}
+
+/* ------------------------------------------------- */
+/* ----------------- tooltipy ------------------- */
+
+.tooltip {
+	position: relative;
+}
+.tooltiptext {
+	font-size: 11px;
+	position: absolute;
+	background: rgba(51, 51, 51, 1) ;
+	color: #fff;
+	padding: 7px 10px;
+	z-index: 1;
+    transition: opacity 0.3s;
+    border-radius: 2px;
+    white-space:nowrap;
+    visibility: hidden;
+}
+.tooltip-right {
+    top: -8px;
+    right: 30px;
+}
+.tooltip-left {
+    top: -8px;
+    left: 20px;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip-right::after {
+    left: 100%;
+    top: 50%;
+    content: " ";
+    height: 0;
+	width: 0;
+    position: absolute;
+    border-width: 5px;
+    margin-top: -5px;
+    border-style: solid;
+    border-color:transparent transparent transparent rgba(51, 51, 51, 1) ;
+    pointer-events: none;
+}
+.tooltip-left::after {
+    right: 100%;
+    top: 50%;
+    content: " ";
+    height: 0;
+	width: 0;
+    position: absolute;
+    border-width: 5px;
+    margin-top: -5px;
+    border-style: solid;
+    border-color:transparent rgba(51, 51, 51, 1) transparent transparent;
+    pointer-events: none;
+}
+
+
+/* ------------------------------------------------- */
+/* ----------------- po terminie ------------------- */
+
+
+.red {
+	background: #c13535;
+	color: #fff;
+}
+.red a {
+	color: #fff;
+}
+.red a:hover {
+	color: #dbdbdb;
+}
+
+
+
+/* ------------------------------------------------- */
+/* ------------- marginy i paddingi  --------------- */
+
+.pt0 {
+	padding-top: 0;
+}
+.pt10 {
+	padding-top: 10px;
+}
+.pt20 {
+	padding-top: 20px;
+}
+.pt30 {
+	padding-top: 30px;
+}
+
+
+/* ------------------------------------------------- */
+/* --------------------- logi  --------------------- */
+.logi {
+	padding: 50px;
+	background: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 50px 0;
+}
+.logi h1 {
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+.logi-small {
+	font-size: 11px;
+	font-weight: normal;
+}
+.logi p {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	line-height: 15px;
+}
+.logi p:last-of-type {
+	border-bottom: none;
+}
+.logi-h1 {
+	margin: 50px 0;
+	font-size: 24px;
+}
+
+/* ------------------------------------------------- */
+/* --------------- edycja platnosci  --------------- */
+.edytuj-info {
+	padding: 50px;
+	background: #fff;
+	font-size: 13px;
+	margin: 50px 0 0 0;
+}
+.edytuj-info p {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	line-height: 23px;
+}
+.edytuj-info p:last-of-type {
+	border-bottom: none;
+}
+.edytuj-info h1 {
+	font-size: 16px;
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+.edytuj-forms {
+	/*max-width: 450px;*/
+	margin-top: 40px;
+}
+.form-label {
+	margin-bottom: 10px;
+}
+.edytuj-forms .form-box {
+	border: 1px solid #dbdbdb;
+	padding: 30px;
+	background: rgba(223, 223, 223, 0.6);
+}
+
+/* ------------------------------------------------- */
+/* --------------------- nowa  --------------------- */
+.nowa-box {
+	max-width: 500px;
+}
+.nowa-info {
+	font-size: 10px;
+	line-height: 10px;
+	background: #e2e2e2;
+	padding: 4px 15px;
+	margin: -20px 0 10px 0;
+	display: table;
+}
+.nowa-box .form-label {
+	background: #dbdbdb;
+	color: #696969;
+	text-transform: uppercase;
+	border:1px #ccc solid;
+	border-bottom: none;
+	padding: 7px 12px 7px 12px;
+	margin-bottom: 0px;
+	font-size: 9px;
+	line-height: 12px;
+}
+.nowa-box .form-input input {
+	border-top: none;
+	/*padding-top: 0;*/
+	/*font-weight: bold;*/
+}
+.legenda p {
+	font-size: 13px;
+	margin-bottom: 10px;
+	line-height: 18px;
+}
+.legenda {
+ border: 1px solid #dbdbdb;
+ padding: 40px;
+ background: rgba(255, 255, 255, 0.2);
+ max-width: 500px;
+}
+
+.nowa-box .form-input input::placeholder {
+	font-weight: normal;
+}
+
+.nowa-box .form-input {
+	margin: 0;
+}
+
+/* ------------------------------------------------- */
+/* --------------- lista platnosci  ---------------- */
+.lista-platnosci {
+	background: #fff;
+	padding: 50px;
+	margin: 50px 0 ;
+}
+.box-platnosci {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 15px;
+}
+.box-platnosci .tooltip {
+	float: left;
+}
+.box-platnosci:after {
+	content: '';
+    display: block;
+    clear: both;
+}
+.box-platnosci:last-of-type {
+	margin-bottom: 0;
+	border-bottom: none;
+	padding-bottom: 0;
+}
+.box-platnosci i {
+	font-size: 16px;
+}
+.box-platnosci {
+	font-size: 15px;
+	line-height: 14px;
+}
+.box-platnosci a {
+	color: #666;
+}
+.box-platnosci a:hover {
+	color: #E86E4D;
+}
+.box-platnosci .ml {
+	margin-left: 10px;
+}
+
+.row {
+	box-sizing: border-box;
+	margin-left: -15px;
+  	margin-right: -15px;
+}
+.row:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+.row:after {
+  clear: both;
+}
+.col-md-6 {
+	width: 50%;
+	float: left;
+	padding-right: 15px;
+	padding-left: 15px;
+	position: relative;
+	box-sizing: border-box;
+}
+
+/* ---------------- @media ---------------- */
+
+@media all and (max-width: 1199px) { 
+	.table-rwd {
+	    width: 100%;
+	}
+} 
+
+@media all and (max-width: 991px) { 
+	
+} 
+
+@media all and (max-width: 786px) {
+
+	/* ---------------- globalne ---------------- */
+	.content {
+		margin: 30px 30px;
+	}
+	.col-md-6 {
+		width: 100%;
+	}
+	.col-md-6:first-child {
+		margin-bottom: 30px;
+	}
+
+	/* ------------------------------------------------- */
+	/* ---------------- nasze płatności ---------------- */
+
+	.rekord-ikony,  .rekord-do-konca, .rekord-yes,
+	.rekord-data-blue, .rekord-do-konca-blue, .rekord-yes-blue
+	{
+		display: none;
+	}
+	.rekord-tytul,	
+	.rekord-data,
+	.rekord-kwota,
+	.rekord-do-konca {
+		font-size: 15px;
+	}
+
+	.rekord-ikony {
+		order: 5;
+		width: 80%;
+		padding-top: 0;
+		font-size: 30px;
+	}
+	.rekord-tytul {
+	    width: 63%;
+	    margin-right: 0;
+	    order: 1;
+	    padding-left: 20px;
+	}	
+	.rekord-data {
+		order: 3;
+		width: 100%;
+		padding-top: 0;
+	}
+	.rekord-data:before {
+		content: "Data płatności: "
+	}
+	.rekord-kwota {
+	    width: 37%;
+	    text-align: right;
+	    order: 2;
+	}
+	.rekord-do-konca {
+		order: 4; 
+		width: 100%;
+		margin: 0;
+		padding-top: 0;
+	}
+	.rekord-do-konca:before {
+		content: "Pozostało rat: "
+	}
+
+	.box-raty-platnosc .tab-rekord {
+		font-size: 13px;
+	}
+	.tytul-strony {
+		font-size: 16px;
+	}
+	.rekord-rata-nr {
+		width: 40px;
+	}
+	.box-raty-platnosc .rekord-rata-data {
+		width: calc(40% - 40px);
+		padding: 20px 0px;
+	}
+	.rekord-rata-status {
+		width: calc(60% - 110px);
+	}
+	.rekord-rata-opcje {
+		width: 110px;
+	}
+
+	.rekord-rata-nr-blue {
+		width: 40px;
+	}
+	.rekord-rata-data-blue {
+		width: calc(40% - 40px);
+	}
+	.rekord-rata-status-blue {
+		width: calc(60% - 100px);
+	}
+	.rekord-rata-opcje-blue {
+		width: 100px;
+	} 
+
+	.box-raty-platnosc .big {
+		display: none;
+	}
+	.box-raty-platnosc .rekord-rata-opcje {
+		padding: 0;
+	}
+	.link-ico {
+		float: left;
+	}
+	.box-raty-platnosc .small a {
+		background: rgba(219, 219, 219, 0.1);
+		padding: 20px;
+		display: block;
+	}
+	.box-raty-platnosc .small i {
+		font-size: 16px
+	}
+	.box-raty-platnosc .small {
+		display: block;
+	}
+	.box-raty-platnosc .tab-rekord {
+		margin: 0 0 1px 0;
+	}
+
+	/* ----------- po terminie ----------- */
+	.rekord-do-konca-red {
+		order: 4; 
+		width: 100%;
+		margin: 0;
+		padding-top: 0;
+		font-size: 13px;
+	}
+	.rekord-do-konca-red:before {
+		content: "Dni po terminie: "
+	}
+	.tab-red {
+		background: #c13535;
+	}
+	/* ----------- po terminie ----------- */
+
+	.rekord-yes {
+		order: 6;
+		width: 20%;
+		text-align: right;
+		padding-top: 0;
+		font-size: 30px;
+	}
+	.rekord-yes i {
+		color: #70b956;
+	}
+	.red i {
+		color: #fff;
+	}
+	.highlight {
+		box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1);
+		/*background: #fff;*/
+	}
+
+
+
+	.rekord-tytul-blue {
+	    width: 50%;
+	    margin-right: 0px;
+	}
+	.rekord-kwota-blue {
+	    width: 50%;
+	    text-align: right;
+	    order: 2;
+	}
+
+
+	.tab-rekord {
+		flex-wrap: wrap;
+		margin: 8px 0;
+		font-size: 15px;
+	}
+	.tab-tytul-margin {
+		margin: 0;
+	}
+	
+
+
+	 /*Make dropdown links appear inline*/
+    nav ul {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    nav li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    nav ul li, nav li a {
+        width: 100%;
+        padding: 0;
+    }
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block;
+		color: #fff;
+		clear: both;
+		display: flex;
+		justify-content: space-between;
+    }
+    .etykieta {
+		margin-left: 30px;
+	}
+	.hamburger {
+		margin-right: 30px;
+	}
+
+	.nav-padd {
+		padding: 0;
+	}
+
+	.main-header {
+		font-size: 18px;
+		font-family: 'Ubuntu', sans-serif;
+		font-weight: 300;
+		letter-spacing: -0.5px;
+		color: #fff;
+
+		width: 100%;
+		min-height: 80px;
+		background-color: #44638c;
+		display: flex;
+		justify-content: space-between;
+	}
+
+
+
+	.logo {
+		padding-left: 30px;
+		margin-top: 30px;
+	}
+
+	.konto {
+		padding-right: 30px;
+		margin-top: 30px;
+	}
+
+	.ico-wyloguj {
+		font-size: 14px;
+		margin-left: 7px;
+	}
+	.ico-serce {
+		font-size: 14px;
+		margin-right: 7px;
+	}
+
+	.zalogowano-jako {
+		display: none;
+	}
+
+	/* ----- stopka ------ */
+	footer {
+		margin: 0 30px 0;
+		padding: 20px 0 20px 0;
+	}
+
+	/* ----- tooltip ------ */
+	.tooltip:hover .tooltiptext {
+	    visibility: hidden;
+	    opacity: 0;
+	}
+	
+	/* ----- lista wszystkich platnosci ------ */
+	.box-platnosci i {
+		font-size: 20px;
+	}
+	.box-platnosci {
+		font-size: 18px;
+		line-height: 19px;
+	}
+	.lista-platnosci {
+		background: #fff;
+		padding: 30px;
+		margin: 30px 0 ;
+	}
+
+}
+
+@media all and (max-width: 575px) { 
+	
+	
+}
+
+@media all and (max-width: 400px) { 
+	
+	.tab-rekord {
+		font-size: 13px;
+	}
+	.rekord-tytul,	
+	.rekord-data,
+	.rekord-kwota,
+	.rekord-do-konca {
+		font-size: 12px;
+	}
+	.box-platnosci {
+		font-size: 13px;
+	}
+	.box-platnosci i {
+		font-size: 16px;
+	}
+}
+
+
+/* ----- marginy i paddingi ------ */
+.mb-20 {
+	margin-bottom: 20px !important;
+}
+.mb-40 {
+	margin-bottom: 40px !important;
+}
+
+.oplacono {
+	color: #7aba51;
+}
+.poterminie {
+	color: #ff2d2d;}
+

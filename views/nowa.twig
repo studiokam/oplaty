@@ -1,0 +1,111 @@
+{% include "head.twig" %}
+<script>
+      $( function() {
+        $( "#datepicker" ).datepicker({ minDate: 0});
+      } );
+      </script>
+
+		<!-- content -->
+		<div class="content">
+			
+			
+
+			<div class="tytul-strony mb-20">Nowa płatność</div> 
+
+			
+					{% if error %}
+						<div class="alert alert-danger">
+							{% for errors in error  %}
+								<p>{{ errors }}</p>
+							{% endfor %}
+						</div>
+					{% endif %}
+			
+
+			<div class="edytuj-forms">
+				
+				<!-- formularze -->
+				<div class="row">
+				
+					<div class="col-md-6">
+
+						<form action="" method="post">
+							<div class="nowa-box ">
+
+								<div class="zaloguj-form">
+			                        <div class="form-label-zaloguj">
+			                            <label for="name">Nazwa</label>
+			                        </div>
+			                        <div class="form-input-zaloguj mb-20">
+			                            <input type="text" name="name" value="{{ data.name }}" autocomplete="off">
+			                        </div>
+			                    </div>
+
+								<div class="zaloguj-form">
+			                        <div class="form-label-zaloguj">
+			                            <label for="name">Kwota</label>
+			                        </div>
+			                        <div class="form-input-zaloguj mb-20">
+			                            <input type="text" name="price" value="{{ data.price }}" autocomplete="off">
+			                        </div>
+			                    </div>
+
+			                    <div class="zaloguj-form">
+			                        <div class="form-label-zaloguj">
+			                            <label for="name">Data</label>
+			                        </div>
+			                        <div class="form-input-zaloguj">
+			                            <input type="text" name="start_date" id="datepicker" value="{{ data.start_date }}" autocomplete="off">
+			                        </div>
+			                    </div>
+			                    <div class="nowa-info mb-20">Data najbliższej płatności</div>
+
+			                    <div class="zaloguj-form">
+			                        <div class="form-label-zaloguj">
+			                            <label for="name">Cykl</label>
+			                        </div>
+			                        <div class="form-input-zaloguj mb-20">
+			                            <select class="form-control" id="select" name="cycle">
+										{% for key, value in selectValues %}
+											<option value="{{ key }}" {% if key == data.cycle %} selected="selected"{% endif %}> {{ value }}</option>
+										{% endfor %}
+				                    </select>
+			                        </div>
+			                    </div>
+								
+								<div class="zaloguj-form">
+			                        <div class="form-label-zaloguj">
+			                            <label for="name">Ile razy</label>
+			                        </div>
+			                        <div class="form-input-zaloguj">
+			                            <input type="text" name="repeat_numbers" value="{{ data.repeat_numbers }}" required autocomplete="off">
+			                        </div>
+			                    </div>
+			                    <div class="nowa-info">Aby ustawić na powtarzanie bez limitu ilości powtórzeń podaj 0</div>
+
+								<button type="submit" class="btn btn-save">Zapisz</button>
+							</div>
+						</form>
+					</div>
+
+					<div class="col-md-6">
+						<div class="legenda">
+							<p><b>Nazwa</b> - nazwa nowej płatności</p>
+							<p><b>Kwota</b> - wielkość danej płatności</p>
+							<p><b>Data</b> - podaj datę najbliższej płatności</p>
+							<p><b>Cykl</b> - co ile będzie powtarzana dana płatność</p>
+							<p><b>Ile razy</b> - Ile razy powtórzyć płatność (np. 12 rat - podaj 12). Aby ustawić na powtarzanie bez limitu ilości powtórzeń (ma powtarzać się "na zawsze") podaj 0</p>
+						</div>
+					</div>
+
+				</div>
+
+		        <!-- /formularze -->
+		    </div>
+	        
+
+		</div>
+		<!-- /content -->
+		
+
+{% include "footer.twig" %}

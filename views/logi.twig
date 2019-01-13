@@ -1,0 +1,25 @@
+{% include "head.twig" %}
+
+
+		<!-- content -->
+		<div class="content">
+
+
+
+			<!-- logi -->
+			<div class="logi">
+				<h1>LOGI</h1>
+				{% for logi in logi_array %}
+					<p><span class="logi-small">{{ logi.data|date('Y-m-d H:i:s') }} / {% if logi.dodal == 1 %}Konrad{% endif %} {% if logi.dodal == 2 %}Gosia{% endif %}
+					
+					</span> {{ logi.tresc }}</p>
+				{% endfor %}
+			</div>
+	        <!-- /logi -->
+
+
+
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}

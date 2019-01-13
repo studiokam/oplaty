@@ -1,0 +1,76 @@
+{% include "head.twig" %}
+
+
+		<!-- content -->
+		<div class="content">
+			
+
+			<div class="tytul-strony">
+				{% if pozostalo == 0 %}
+					Płatności po terminie - obecnie brak :)
+				{% else %}
+					Płatności po terminie - łączna kwota:  <b>{{ pozostalo }} zł</b>
+				{% endif %}
+			</div>
+
+			<!-- tabela z płatnościami -->
+			<table class="table-rwd">
+
+				<!-- tabela wyjaśnienia (blue) -->
+				<tr class="tab-rekord tab-tytul-margin">
+	                <td class="rekord-tytul-blue">
+	                	<span class="table-font-small">edytuj / notatka / tytuł</span>
+	                </td>
+	                <td class="rekord-data-blue">
+	                	<p>data płatności</p>
+	            	</td>
+	                <td class="rekord-kwota-blue">kwota</td>
+	                <td class="rekord-do-konca-blue">
+	                	<span class="table-font-small">dni</span>
+	                </td>
+	                <td class="rekord-yes-blue"></td>
+	            </tr>
+				<!-- /tabela wyjaśnienia (blue) -->
+
+
+	            
+	            {% for rata in raty_display %}
+	            <!-- tabela rekord -->
+	            
+	            <tr class="tab-rekord tab-red">
+	                <td class="rekord-ikony hide red">
+	                	<div class="tooltip"><a href="edytuj_rate.php?id={{ rata.id }}"><i class="ion-ios-gear mr10"></i></a>
+	                		<span class="tooltiptext tooltip-left">Edytuj ratę</span>
+	                	</div>
+	                	<div class="tooltip"><a href="raty_platnosci.php?id={{ rata.id_platnosci }}"><i class="ion-grid mr10"></i></a>
+	                		<span class="tooltiptext tooltip-left">Zobacz wszytkie raty</span>
+	                	</div>
+	                	<div class="tooltip"><a href="notatka.php?id={{ rata.id }}"><i class="ion-document-text mr10"></i></a>
+	                		<span class="tooltiptext tooltip-left">Notatka</span>
+	                	</div>
+	            	</td>
+	                <td class="rekord-tytul red">{{ rata.nazwa }}</td>
+	                <td class="rekord-data red">{{ rata.data_raty|date('Y-m-d') }}</td>
+	                <td class="rekord-kwota red">{{ rata.kwota }} zł</td>
+	                <td class="rekord-do-konca-red red">{{ rata.dni }}</td>
+	                <td class="rekord-yes hide red">
+	                	<div class="tooltip"><a href="poterminie.php?id={{ rata.id_platnosci }}&zaplacono=ok&id_raty={{ rata.id }}"><i class="ion-checkmark"></i></a>
+	                		<span class="tooltiptext tooltip-right">Oznacz jako nieopłacona</span>
+	                	</div>
+	                </td>
+	            </tr>
+	            <!-- /tabela rekord -->
+	            {% endfor %}
+
+	            
+
+	        </table>
+	        <!-- /tabela z płatnościami -->
+
+	        
+
+
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}

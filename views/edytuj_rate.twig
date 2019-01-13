@@ -1,0 +1,52 @@
+{% include "head.twig" %}
+
+
+		<!-- content -->
+		<div class="content">
+			
+			
+
+			<div class="tytul-strony mb-20">Edycja raty płatności: <b>{{ nazwa }}</b></div> 
+
+			<div class="edytuj-forms">
+				
+				<!-- formularze -->
+				<div class="row">
+				
+
+					<div class="col-md-6">
+						<form action="" method="post">
+							<div class="form-box ">
+								<div class="form-label">
+									<label for="name">Kwota</label>
+								</div>
+								<div class="form-input">
+									<input type="text" name="price" value="{{ rata_kwota }}" required>
+								</div>
+								<button type="submit" class="btn btn-save">Zapisz</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+
+		        <!-- /formularze -->
+		    </div>
+
+
+			<!-- logi -->
+			<div class="logi">
+				<h1>Wszystkie logi dla tej płatności</h1>
+				{% for logi in logi_array %}
+					<p><span class="logi-small">{{ logi.data|date('Y-m-d H:i:s') }} / {% if logi.dodal == 1 %}Konrad{% endif %} {% if logi.dodal == 2 %}Gosia{% endif %}
+					
+					</span> {{ logi.tresc }}</p>
+				{% endfor %}
+			</div>
+	        <!-- /logi -->
+
+
+		</div>
+		<!-- /content -->
+		
+{% include "footer.twig" %}
