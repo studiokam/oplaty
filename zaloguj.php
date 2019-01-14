@@ -5,6 +5,10 @@ if (Session::exists('user')) {
   Redirect::to('index.php');
 } 
 
+if (Session::exists('flash_error')) {
+  $flash_error = Session::flash('flash_error');
+}
+
 if (Input::exists()) {
 
         
@@ -12,7 +16,7 @@ if (Input::exists()) {
         $validation = $validate->check($_POST, array(
             'username' => array('required' => true),
             'password' => array('required' => true)
-        ));
+        ), false);
 
         if ($validation->passed()) {
             $user = new User();
@@ -21,7 +25,8 @@ if (Input::exists()) {
             if ($login) {
                 Redirect::to('index.php');
             } else {
-                echo 'Sorry, logging in failed.';
+                Session::flash('flash_error', 'Błd logowania, podaj inne dane.');
+                Redirect::to('zaloguj.php');
             }
         } else {
             foreach ($validation->errors() as $error) {
@@ -72,6 +77,13 @@ if (Input::exists()) {
             <form action="" method="post">
 
                 <div class="nowa-box">
+
+                    <?php if (isset($flash_error)): ?>
+                      <div class="flash_error mb-20"><?php echo $flash_error; ?></div>
+                    <?php endif ?>
+                      
+                    
+
                     <div class="zaloguj-form">
                         <div class="form-label-zaloguj">
                             <label for="name">Login</label>
@@ -102,10 +114,6 @@ if (Input::exists()) {
         </div>
 
             <!-- /formularze -->
-        </div>
-
-        <div class="box-demo">
-          <h6>Dane do logowania:</h6>
         </div>
 
 

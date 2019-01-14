@@ -8,7 +8,7 @@ class Validate {
 		$this->_db = DB::getInstance();
 	}
 
-	public function check($source, $items=array()) {
+	public function check($source, $items=array(), $login = true) {
 		foreach ($items as $item => $rules) {
 			foreach ($rules as $rule => $rule_value) {
 				
@@ -65,9 +65,12 @@ class Validate {
 		}
 
 		
-		if ($source['cycle'] === 'raz' && $source['repeat_numbers'] != 1) {
-			$this->addError("{$rules['name']} - przy wybraniu platności jednorazowej w opcji CYKL, ilość powtórzeń musi mieć wartość równą 1.");
+		if ($login) {
+			if ($source['cycle'] === 'raz' && $source['repeat_numbers'] != 1) {
+				$this->addError("{$rules['name']} - przy wybraniu platności jednorazowej w opcji CYKL, ilość powtórzeń musi mieć wartość równą 1.");
+			}
 		}
+		
 
 		if (empty($this->_errors)) {
 			$this->_passed = true;
